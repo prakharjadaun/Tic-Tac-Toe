@@ -1,23 +1,24 @@
+//header files
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
+
+/*-------------------------------------------function declaration----------------------------------------*/
 void display_name( char name[30],int num);
 void matrix_show(char arr[3][3]);
 int check_char(char arr[3][3],char ch);
 int check_fill(char arr[3][3]);
 void insert_symbol(char arr[3][3],char n, char ch );
 int check_win(char arr[3][3],char ch);
+void rulesOfGame();
+
+/*---------------------------------------------main function----------------------------------------------*/
 int main()
 {
     char name1[30],name2[30];
     int i,j;
     
-    printf("\n\n \t\t\t\t\t\tGAME BEGINS!\n");
-    printf("\n\t\t\tRules Of the Games :\n\n");
-    printf("  1. Player one will have the first chance and the chances will be followed accordingly.");
-    printf("\n  2. You wil be shown an example of the boxes and their numbers. You have to enter the number  of that box in which you want your sign! ");
-    printf("\n  3. Player 1 will have '*' symbol and player 2 will have 'O' symbol.");
-    printf("\n  4. You should not enter a value where a symbol has been inserted before!");
+    rulesOfGame();
 
     printf("\n\nNow enter your names : \n");
 
@@ -133,6 +134,18 @@ int main()
     printf("\nOOPs no one won. Better Luck next time!");
     return 0;
 }  
+
+/*----------------------------------------------------function definitions-----------------------------------------*/
+//function to print the rules of game
+void rulesOfGame()
+{
+    printf("\n\n \t\t\t\t\t\tGAME BEGINS!\n");
+    printf("\n\t\t\tRules Of the Games :\n\n");
+    printf("  1. Player one will have the first chance and the chances will be followed accordingly.");
+    printf("\n  2. You wil be shown an example of the boxes and their numbers. You have to enter the number  of that box in which you want your sign! ");
+    printf("\n  3. Player 1 will have '*' symbol and player 2 will have 'O' symbol.");
+    printf("\n  4. You should not enter a value where a symbol has been inserted before!");
+}
 
 
 //to display the name of the players
