@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<string.h>
 
-/*-------------------------------------------function declaration----------------------------------------*/
+/*----------------------------------------------------------------function declaration--------------------------------------------------*/
 void display_name( char name[30],int num);
 void matrix_show(char arr[3][3]);
 int check_char(char arr[3][3],char ch);
@@ -12,7 +12,7 @@ void insert_symbol(char arr[3][3],char n, char ch );
 int check_win(char arr[3][3],char ch);
 void rulesOfGame();
 
-/*---------------------------------------------main function----------------------------------------------*/
+/*-------------------------------------------------------------------main function----------------------------------------------------*/
 int main()
 {
     char name1[30],name2[30];
@@ -135,7 +135,7 @@ int main()
     return 0;
 }  
 
-/*----------------------------------------------------function definitions-----------------------------------------*/
+/*------------------------------------------------------------------function definitions----------------------------------------------*/
 //function to print the rules of game
 void rulesOfGame()
 {
