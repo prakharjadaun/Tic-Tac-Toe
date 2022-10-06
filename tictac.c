@@ -4,12 +4,12 @@
 #include<string.h>
 
 /*----------------------------------------------------------------function declaration--------------------------------------------------*/
-void display_name( char name[30],int num);
-void matrix_show(char arr[3][3]);
-int check_char(char arr[3][3],char ch);
-int check_fill(char arr[3][3]);
-void insert_symbol(char arr[3][3],char n, char ch );
-int check_win(char arr[3][3],char ch);
+void displayName( char name[30],int num);
+void matrixShow(char arr[3][3]);
+int checkChar(char arr[3][3],char ch);
+int checkFill(char arr[3][3]);
+void insertSymbol(char arr[3][3],char n, char ch );
+int checkWin(char arr[3][3],char ch);
 void rulesOfGame();
 
 /*-------------------------------------------------------------------main function----------------------------------------------------*/
@@ -27,12 +27,12 @@ int main()
     printf("Enter the name of the player 2 : ");
     fgets(name2,30,stdin);
 
-    display_name(name1,1);
-    display_name(name2,2);
+    displayName(name1,1);
+    displayName(name2,2);
 
     char a[3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
     printf("The format of the Tic Tac Toe is :");
-    matrix_show(a);
+    matrixShow(a);
 
     int m=0;
     char box1;
@@ -42,8 +42,8 @@ int main()
         printf("\nChance of %s  ",name1);
         printf("\nInput the number where you have to insert '*' : ");
         scanf("%c",&box1);
-        insert_symbol(a,box1,'*');
-        matrix_show(a);
+        insertSymbol(a,box1,'*');
+        matrixShow(a);
         
         
         e1:
@@ -51,18 +51,18 @@ int main()
         printf("Input the number where you have to insert 'O' : ");
         while(getchar()!='\n');
         scanf("%c",&box2);
-        int e=check_char(a,box2);
+        int e=checkChar(a,box2);
         if(e==1)
         {
             printf("That place is already assigned. Enter again!\n");
             goto e1;
         }
-        insert_symbol(a,box2,'O');
-        matrix_show(a);
+        insertSymbol(a,box2,'O');
+        matrixShow(a);
        
     while(z)
     {
-        k=check_fill(a);
+        k=checkFill(a);
         if(k==1)
         {
             goto l3;
@@ -72,21 +72,21 @@ int main()
         printf("\nInput the number where you have to insert '*' : ");
         while(getchar()!='\n');
         scanf("%c",&box1);
-        m=check_char(a,box1);
+        m=checkChar(a,box1);
         if(m==1)
         {
             printf("That place is already assigned. Enter again!\n");
             goto enter1;
         }
-        insert_symbol(a,box1,'*');
-        matrix_show(a);
-        z=check_win(a,'*');
+        insertSymbol(a,box1,'*');
+        matrixShow(a);
+        z=checkWin(a,'*');
         if(z==0)
         {
             goto l1;
         }
 
-        k=check_fill(a);
+        k=checkFill(a);
         if(k==1)
         {
             goto l3;
@@ -96,21 +96,21 @@ int main()
         printf("Input the number where you have to insert 'O' : ");
         while(getchar()!='\n');
         scanf("%c",&box2);
-        m=check_char(a,box2);
+        m=checkChar(a,box2);
         if(m==1)
         {
             printf("That place is already assigned. Enter again!\n");
             goto enter2;
         }
-        insert_symbol(a,box2,'O');
-        matrix_show(a);
-        z=check_win(a,'O');
+        insertSymbol(a,box2,'O');
+        matrixShow(a);
+        z=checkWin(a,'O');
         if(z==0)
         {
             goto l2;
         }
 
-        k=check_fill(a);
+        k=checkFill(a);
         if(k==1)
         {
             goto l3;
@@ -149,14 +149,14 @@ void rulesOfGame()
 
 
 //to display the name of the players
-void display_name( char name[30],int num)
+void displayName( char name[30],int num)
 {
     printf("Player %d : %s",num, name);
 }
 
 
 //to display the matrix  
-void matrix_show(char arr[3][3])
+void matrixShow(char arr[3][3])
 {
     printf("\n\t\t\t\t");
     for(int i=0;i<3;i++)
@@ -182,7 +182,7 @@ void matrix_show(char arr[3][3])
 }
 
 //to insert the character passed
-void insert_symbol(char arr[3][3],char n, char ch )
+void insertSymbol(char arr[3][3],char n, char ch )
 {
     for(int i=0;i<3;i++)
     {
@@ -196,7 +196,7 @@ void insert_symbol(char arr[3][3],char n, char ch )
     }
 }
 
-int  check_char(char arr[3][3],char ch)
+int  checkChar(char arr[3][3],char ch)
 {
     char b[3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
     for(int i=0;i<3;i++)
@@ -214,7 +214,7 @@ int  check_char(char arr[3][3],char ch)
 }
 
 //check if all the boxes have been filled
-int check_fill(char arr[3][3])
+int checkFill(char arr[3][3])
 {
     int count=0;
     for(int i=0;i<3;i++)
@@ -238,7 +238,7 @@ int check_fill(char arr[3][3])
 }
 
 //to check if the three boxes have been filled
-int check_win(char arr[3][3],char ch)
+int checkWin(char arr[3][3],char ch)
 {
     if((arr[0][0]==ch)&&(arr[1][1]==ch)&&(arr[2][2]==ch))
     {
